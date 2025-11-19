@@ -1,0 +1,25 @@
+# Application configuration
+app:
+  name: flask-hello-world
+
+# Number of replicas
+replicaCount: 3
+
+# Docker image configuration
+image:
+  repository: <+artifacts.primary.image>
+  pullPolicy: IfNotPresent
+
+# Service configuration
+service:
+  type: ClusterIP
+  port: 5000
+
+# Resource limits and requests
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
