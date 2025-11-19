@@ -19,7 +19,7 @@ spec:
         image: {{ .Values.image.repository }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - containerPort: {{ .Values.service.targetPort }}
+        - containerPort: {{ .Values.service.port }}
           protocol: TCP
         resources:
           limits:
@@ -31,12 +31,12 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: {{ .Values.service.targetPort }}
+            port: {{ .Values.service.port }}
           initialDelaySeconds: 10
           periodSeconds: 10
         readinessProbe:
           httpGet:
             path: /
-            port: {{ .Values.service.targetPort }}
+            port: {{ .Values.service.port }}
           initialDelaySeconds: 5
           periodSeconds: 5
