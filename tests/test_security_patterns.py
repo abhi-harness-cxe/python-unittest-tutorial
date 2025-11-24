@@ -20,6 +20,7 @@ DUMMY_SSN = "123-45-6789"  # Test SSN
 # This is not a real secret, just a test pattern
 TEST_ENCRYPTION_KEY = "test_key_1234567890abcdef1234567890abcdef"
 
+JWT_ENCRYPTION_KEY = "t234567890abcdef1234567890abcdef"
 def test_dummy_security_patterns():
     """Dummy test function to verify test patterns are detected."""
     assert True, "This is just a dummy test for security pattern scanning"
