@@ -12,6 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the Flask application
 COPY app.py .
+RUN mkdir /harness && echo "Hello World" >> test.txt
 
 # Expose port 5000
 EXPOSE 5000
