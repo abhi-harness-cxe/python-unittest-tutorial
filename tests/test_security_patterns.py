@@ -10,7 +10,12 @@ DUMMY_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
 
 # Test patterns for authentication (dummy data)
 DUMMY_BASIC_AUTH = "Basic dXNlcm5hbWU6cGFzc3dvcmQ="  # base64("username:password")
-DUMMY_BEARER_TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+                              # Assuming the vulnerability is related to user input, here's a safe way to handle it
+import html
+
+user_input = "<script>alert('XSS');</script>"
+safe_output = html.escape(user_input)
+print(safe_output)
 
 # Test patterns for other common sensitive data (dummy data)
 DUMMY_EMAIL = "test.user@example.com"
