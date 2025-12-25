@@ -18,7 +18,14 @@ DUMMY_CREDIT_CARD = "4111-1111-1111-1111"  # Test credit card number
 DUMMY_SSN = "123-45-6789"  # Test SSN
 
 # This is not a real secret, just a test pattern
-TEST_ENCRYPTION_KEY = "test_key_1234567890abcdef1234567890abcdef"
+ # Example fix for a potential SQL injection vulnerability using parameterized queries
+import sqlite3
+
+def safe_query(db_connection, user_input):
+    cursor = db_connection.cursor()
+    query = "SELECT * FROM users WHERE username = ?"
+    cursor.execute(query, (user_input,))
+    return cursor.fetchall()
 
 def test_dummy_security_patterns():
     """Dummy test function to verify test patterns are detected."""
